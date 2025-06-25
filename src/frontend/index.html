@@ -1,121 +1,142 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="./static/css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="./static/css/styles.css"  media="screen,projection"/>
-      <script type="text/javascript" src="./static/js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/persona.js"></script>
-      <script type="text/javascript" src="js/usuario.js"></script>
-      <script type="text/javascript" src="js/admin.js"></script>
-      <script type="text/javascript" src="js/main.js"></script>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <main>
-            <!-- Navigation bar -->
-            <nav style="background-color:#124580">
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo left" style="margin-left: 15px;">Smart Home</a>
-                    <ul id="nav-mobile" class="right" style="margin-right: 15px;">
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </div>
-            </nav>	
-            <!-- Page Body -->
-            <div class="container">
-                <div class="row" style="background-color: gray;">
-                    
-                    <div class="col s12 m8 l6 xl6" style="background-color: yellow;">
-                        <h2>Datos de la persona</h2>
-                        <div class="input-field">
-                            <label for="iNombre">Nombre</label>
-                            <input type="text" placeholder="Juan" id="iNombre">
-                        </div>
-                        <div class="input-field">
-                            <label for="iApellido">Apellido</label>
-                            <input type="text" id="iApellido">
-                        </div>
-                        
-                        <button class="btn-large red">
-                            <i class="material-icons right">save</i>
-                            Guardar 2 
-                        </button>
-                    </div>
-                      <div class="col s12 m4 l6 xl6" style="background-color: rgb(111, 255, 0);">
-                        <h2>Usuario</h2>
-                           <input value="Usuario">
-                        <input value="Password">
-                        <div id="botones">
-                            <button id="btnLogin" class="btn-large  miColor">
-                                <i class="material-icons left">person</i>
-                            login 
-                            </button>
-                        </div>
-                    </div>
-                      
-                </div>
-                <br/>
-                <h3>Smart Home Web Client!</h3>
-                <br/>
-     
-                <div id="" class="row">
-                     <ul id="lista" class="collection">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dashboard Sensores</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./static/css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./static/css/styles.css" media="screen,projection"/>
+    <script type="text/javascript" src="./static/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/cardDelete.js"></script>
+    <script type="text/javascript" src="js/cardEdit.js"></script>
+    <script type="text/javascript" src="js/cardSlider.js"></script>
+    <script type="text/javascript" src="js/CardEditSendDB.js"></script>
+    <script type="text/javascript" src="js/cardDB.js"></script>
+    <script type="text/javascript" src="js/cardAdd.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+  </head>
+  <body>
+    <main>
+      <!-- Navigation bar -->
+      <nav>
+      <div class="nav-wrapper">
+      <a href="#!" class="brand-logo left" style="margin-left: 15px;">Dashboard</a>
+      </div>
+      </nav>
 
-                </ul>
-                    <h1 id="titulo1">
-                        tiltulo
-                    </h1>
-                    <h3>
-                        tiltulo
-                    </h3>
-                    <h6>
-                        sub!
-                    </h6>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse quas natus optio dolorem vel odio ipsam, delectus expedita ipsum aspernatur perspiciatis ad. Corrupti nemo provident deleniti aperiam? Perferendis, eos dicta!
-                    </p>
-                    <!--input type="button" value="Boton 1"/>
-                    <input type="button" value="Boton 2"/-->
-                    <label  for="texto1">
-                        Ingrese su nombre
-                    </label>
-                    <input unInvento="nada" type="text" id="texto1"  />
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12 xl12">
-                        <textarea id="textarea_1" class="materialize-textarea" style="height: 150px;" readonly>
+      <div class="container" style="margin-top: 32px;">
+      <!-- Botón para agregar sensores -->
+      <div class="row">
+      <div class="col s12 center-align">
+      <button id="btnAgregarSensor" class="btn waves-effect waves-light purple darken-2">
+      <i class="material-icons left">add</i>Agregar Sensor
+      </button>
+      </div>
+      </div>
 
-                 
-                        </textarea>
-                    </div>
-                    <div class="col s4 m4 l2 xl2">
-                        <button id="btn_1" class="btn waves-effect waves-light button-view">Click aca</button>
-                        <button id="btnMostrar" class="btn waves-effect waves-light button-view">Mostrar elementos</button>
-                    </div>
-                </div>
-            </div>	
-        </main>
-		<!-- Page Footer -->
-        <footer class="page-footer" style="background-color:#124580">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s6">
-                        <h5 class="white-text">Smart Home</h5>
-                        <p class="grey-text text-lighten-4">Copyright ### - 2021</p>
-                    </div>
-                    <div class="col l6 s6">
-                        <h5 class="white-text right-align">Contact</h5>
-                        <p class="white-text right-align">
-                            <a class="grey-text text-lighten-3" href="!#">Email | </a>
-                            <a class="grey-text text-lighten-3" href="!#">Twitter | </a>
-                            <a class="grey-text text-lighten-3" href="!#">LinkedIn</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-		<!--JavaScript at end of body for optimized loading-->
-	
-    </body>
-  </html>
+      <!-- Contenedor de tarjetas (se carga dinámicamente) -->
+      <div class="row" id="tarjetas-contenedor">
+      <!-- Loading inicial -->
+      <div class="col s12">
+      <div class="loading-container">
+      <div class="loading-spinner"></div>
+      </div>
+      </div>
+      </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Smart Home</h5>
+            <p class="grey-text text-lighten-4">Copyright - 2025</p>
+          </div>
+          <div class="col l6 s12 right-align">
+            <h5 class="white-text">Contacto</h5>
+            <p>
+              <a class="grey-text text-lighten-3" href="#!">Email</a> |
+              <a class="grey-text text-lighten-3" href="#!">Twitter</a> |
+              <a class="grey-text text-lighten-3" href="#!">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="./static/js/materialize.min.js"></script>
+  </body>
+
+  <!-- Modal de edición -->
+<div id="modalEditar" class="modal">
+  <div class="modal-content">
+    <h4>Editar Dispositivo</h4>
+    <form id="formEditar">
+      <div class="input-field">
+        <input id="editNombre" name="nombre" type="text" required>
+        <label for="editNombre" class="active">Nombre</label>
+      </div>
+      <div class="input-field">
+        <input id="editDescripcion" name="descripcion" type="text">
+        <label for="editDescripcion" class="active">Descripción</label>
+      </div>
+      <!-- Agrega más campos según lo que quieras editar -->
+      <input type="hidden" id="editId" name="id">
+      <button class="modal-close btn waves-effect waves-light" type="submit">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal para agregar sensor -->
+<div id="modalAgregar" class="modal">
+  <div class="modal-content">
+    <h4>Agregar Nuevo Sensor</h4>
+    <form id="formAgregar">
+      <div class="input-field">
+        <input id="addNombre" name="name" type="text" required>
+        <label for="addNombre">Nombre del Sensor</label>
+      </div>
+      
+      <div class="input-field">
+        <input id="addDescripcion" name="description" type="text">
+        <label for="addDescripcion">Descripción</label>
+      </div>
+      
+      <div class="input-field">
+        <select id="addTipo" name="tipo" required>
+          <option value="" disabled selected>Selecciona el tipo</option>
+          <option value="0">Switch (On/Off)</option>
+          <option value="1">Slider (0-100%)</option>
+        </select>
+        <label for="addTipo">Tipo de Control</label>
+      </div>
+      
+      <div class="input-field">
+        <input id="addIcono" name="iconMate" type="text" placeholder="ac_unit">
+        <label for="addIcono">Ícono (Material Icons)</label>
+        <span class="helper-text">Ejemplo: ac_unit, wb_incandescent, toys, etc.</span>
+      </div>
+      
+      <div class="input-field">
+        <input id="addValor" name="valor" type="number" min="0" max="1" step="0.1" value="0">
+        <label for="addValor">Valor Inicial (0-1)</label>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="modal-close btn-flat">Cancelar</button>
+        <button class="btn waves-effect waves-light purple darken-2" type="submit">
+          <i class="material-icons left">add</i>Crear Sensor
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+</html>

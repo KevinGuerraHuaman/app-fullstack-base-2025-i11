@@ -36,21 +36,22 @@ CREATE TABLE `Devices` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `description` varchar(128) NOT NULL,
-  `state` int(11) NOT NULL,
-  `type` int(11) NOT NULL
+  `tipo` int(11) NOT NULL,
+  `valor` decimal(2,1) NOT NULL,
+  `iconMate` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Devices`
 --
 
-INSERT INTO `Devices` (`id`, `name`, `description`, `state`, `type`) VALUES
-(1, 'Lampara 1', 'Luz living', 1, 0),
-(2, 'Lampara 2', 'Luz cocina', 0, 0),
-(3, 'Velador', 'Velador living', 1, 0),
-(4, 'Persiana 1', 'Persiana living', 1, 1),
-(5, 'Persiana 2', 'Persiana de la cocina', 1, 1),
-(6, 'Persiana 3', 'Persiana balcon', 0, 1);
+INSERT INTO `Devices` (`id`, `name`, `description`, `tipo`, `valor`, `iconMate`) VALUES
+(1, 'Luz cochera', 'Luz principal con nivel de iluminación', 1, 0.5,'ac_unit'),
+(2, 'Cerradura sotano', 'Seguro activo de noche', 0, 1,'toys'),
+(3, 'Persiana de sala', 'Control de apertura', 1, 0.3,'local_florist'),
+(4, 'Alarma terraza', 'Detección de movimiento', 0, 0,'opacity'),
+(5, 'Ventilador de dormitorio', 'Control de velocidad - dormitorio 1', 1, 0.5,'wb_incandescent'),
+(6, 'Luz de sala', 'Luz blanca central', 0, 1,'lock');
 
 --
 -- Indexes for dumped tables

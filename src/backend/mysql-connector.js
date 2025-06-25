@@ -1,6 +1,7 @@
 //=======[ Settings, Imports & Data ]==========================================
 
 var mysql = require('mysql');
+const util    = require('util');
 
 var connection = mysql.createConnection({
     host     : 'mysql-server',
@@ -9,6 +10,14 @@ var connection = mysql.createConnection({
     password : 'userpass',
     database : 'smart_home'
 });
+
+
+// Promisificar pool.query para usar async/await
+connection.query = util.promisify(connection.query);
+//=======[ Funciones CRUD ]====================================================
+async function getAllDevices() {
+    return connection.query('SELECT * FROM Devices');
+}
 
 //=======[ Main module code ]==================================================
 
