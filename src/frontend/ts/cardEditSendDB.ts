@@ -7,6 +7,7 @@ class CardEditSendDB {
     }
   }
 
+  // Maneja el evento de envío del formulario 
   private handleEditFormSubmit(e: Event): void {
     e.preventDefault();
 
@@ -14,6 +15,7 @@ class CardEditSendDB {
     const nombre = (document.getElementById('editNombre') as HTMLInputElement).value;
     const descripcion = (document.getElementById('editDescripcion') as HTMLInputElement).value;
 
+    // Envía una petición PUT al backend para actualizar el dispositivo
     fetch(`/devices/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -36,5 +38,5 @@ class CardEditSendDB {
   }
 }
 
-
+// Exponer globalmente
 (window as any).CardEditSendDB = CardEditSendDB;

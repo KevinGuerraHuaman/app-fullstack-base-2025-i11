@@ -107,6 +107,8 @@ Principales interacciones de usuario:
 
 ### Backend
 
+![architecture](mysqlDB.png)
+
 El backend, desarrollado en Node.js con JavaScript, utiliza Express para gestionar las rutas HTTP y MySQL para la persistencia de datos. El archivo index.js actúa como servidor, recibiendo solicitudes del frontend y respondiendo con la información solicitada. La conexión a la base de datos MySQL se realiza a través de mysql-connector.js, permitiendo ejecutar consultas SQL para gestionar los datos de las tarjetas.
 
 La estructura de la base de datos está definida en smart_home.sql, asegurando la integridad de los datos. El archivo package.json gestiona las dependencias necesarias, como Express y el conector de MySQL.
