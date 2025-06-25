@@ -1,5 +1,3 @@
-//=======[ Settings, Imports & Data ]==========================================
-
 var mysql = require('mysql');
 const util    = require('util');
 
@@ -12,14 +10,14 @@ var connection = mysql.createConnection({
 });
 
 
-// Promisificar pool.query para usar async/await
+
 connection.query = util.promisify(connection.query);
-//=======[ Funciones CRUD ]====================================================
+
 async function getAllDevices() {
     return connection.query('SELECT * FROM Devices');
 }
 
-//=======[ Main module code ]==================================================
+
 
 connection.connect(function(err) {
     if (err) {
@@ -30,5 +28,3 @@ connection.connect(function(err) {
 });
 
 module.exports = connection;
-
-//=======[ End of file ]=======================================================

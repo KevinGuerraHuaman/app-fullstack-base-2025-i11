@@ -36,5 +36,5 @@ class CardEditSendDB {
   }
 }
 
-// Exponer globalmente
+
 (window as any).CardEditSendDB = CardEditSendDB;

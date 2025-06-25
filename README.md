@@ -57,12 +57,12 @@ En la siguiente ilustración podés ver cómo está organizado el proyecto para 
 El proyecto implementado tiene las siguientes funcionalidades:
 
 **Frontend**
-1. Edicion de dispositivos existentes: Nombre, descripcion y tipo.
+1. Edición de dispositivos existentes: nombre, descripción y tipo.
 2. Posibilidad de agregar o quitar dispositivos.
 3. Uso de slider bar (rango de 0 a 100%) y switch (0 o 1).
 
 **Backend**
-1. Funcionalidad para borra un dispositivo.
+1. Funcionalidad para borrar un dispositivo.
 2. Funcionalidad para agregar un dispositivo.
 3. Actualizar cualquier dato de cada dispositivo.
 

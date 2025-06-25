@@ -1,7 +1,4 @@
 
-
-// cardLoader.ts - Maneja la carga dinámica de cards desde la base de datos
-
 class CardDB {
     private apiUrl: string = '/devices/';
     private container: HTMLElement | null = null;
@@ -10,7 +7,7 @@ class CardDB {
         this.container = document.getElementById('tarjetas-contenedor');
     }
 
-    // Cargar todos los dispositivos desde la API
+    
     async loadDevices(): Promise<void> {
         try {
             const response = await fetch(this.apiUrl);
@@ -21,7 +18,7 @@ class CardDB {
             const devices = await response.json();
             this.renderDevices(devices);
 
-            // Reinicializar los event listeners después de cargar las cards
+            
             this.reinitializeEventListeners();
 
         } catch (error) {
@@ -30,24 +27,21 @@ class CardDB {
         }
     }
 
-    // Renderizar las cards dinámicamente
     private renderDevices(devices: any[]): void {
         if (!this.container) {
             console.error('Contenedor de tarjetas no encontrado');
             return;
         }
 
-        // Limpiar el contenedor
         this.container.innerHTML = '';
 
-        // Generar cada card
         devices.forEach(device => {
             const cardHtml = this.generateCardHtml(device);
             this.container!.innerHTML += cardHtml;
         });
     }
 
-    // Generar HTML para una card individual
+
     private generateCardHtml(device: any): string {
         const cardColors = this.getCardColors(device.id);
         const iconHtml = this.getIconHtml(device.icon, cardColors.iconBg);
@@ -75,7 +69,7 @@ class CardDB {
         `;
     }
 
-    // Obtener colores según el ID del dispositivo
+
     private getCardColors(id: number): { cardClass: string, iconBg: string, btnClass: string } {
         const colorSchemes = [
             { cardClass: 'amber lighten-3', iconBg: '#124580', btnClass: 'purple darken-2' },
@@ -89,15 +83,15 @@ class CardDB {
         return colorSchemes[(id - 1) % colorSchemes.length];
     }
 
-    // Generar HTML del ícono
+
     private getIconHtml(iconName: string, bgColor: string): string {
         return `<span class="icon-bg" style="background:${bgColor};"><i class="material-icons">${iconName}</i></span>`;
     }
 
-    // Generar HTML del control (slider o switch)
+
     private getControlHtml(device: any): string {
         if (device.type === 1) {
-            // Slider
+    
             const percentage = Math.round(device.value * 100);
             return `
                 <div class="range-field">
@@ -106,7 +100,7 @@ class CardDB {
                 <span class="control-value">${percentage}%</span>
             `;
         } else {
-            // Switch
+
             const checked = device.state === 1 ? 'checked' : '';
             return `
                 <div class="switch">
@@ -121,9 +115,9 @@ class CardDB {
         }
     }
 
-    // Reinicializar event listeners después de cargar las cards
+
     private reinitializeEventListeners(): void {
-        // Reinicializar los manejadores de eventos
+ 
         if ((window as any).CardDelete) {
             const deleteManager = new (window as any).CardDelete();
             deleteManager.attachDeleteListeners();
@@ -140,7 +134,6 @@ class CardDB {
         }
     }
 
-    // Mostrar mensaje de error
     private showError(message: string): void {
         if (this.container) {
             this.container.innerHTML = `
@@ -157,5 +150,5 @@ class CardDB {
     }
 }
 
-// Hacer la clase disponible globalmente
+
 (window as any).CardDB = CardDB;

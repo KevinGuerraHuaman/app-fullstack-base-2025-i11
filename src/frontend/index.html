@@ -20,7 +20,7 @@
   </head>
   <body>
     <main>
-      <!-- Navigation bar -->
+
       <nav>
       <div class="nav-wrapper">
       <a href="#!" class="brand-logo left" style="margin-left: 15px;">Dashboard</a>
@@ -28,7 +28,7 @@
       </nav>
 
       <div class="container" style="margin-top: 32px;">
-      <!-- Botón para agregar sensores -->
+  
       <div class="row">
       <div class="col s12 center-align">
       <button id="btnAgregarSensor" class="btn waves-effect waves-light purple darken-2">
@@ -37,7 +37,7 @@
       </div>
       </div>
 
-      <!-- Contenedor de tarjetas (se carga dinámicamente) -->
+ 
       <div class="row" id="tarjetas-contenedor">
       <!-- Loading inicial -->
       <div class="col s12">
@@ -50,7 +50,6 @@
       </div>
     </main>
 
-    <!-- Footer -->
     <footer class="page-footer">
       <div class="container">
         <div class="row">
@@ -72,7 +71,7 @@
     <script type="text/javascript" src="./static/js/materialize.min.js"></script>
   </body>
 
-  <!-- Modal de edición -->
+
 <div id="modalEditar" class="modal">
   <div class="modal-content">
     <h4>Editar Dispositivo</h4>
@@ -85,14 +84,15 @@
         <input id="editDescripcion" name="descripcion" type="text">
         <label for="editDescripcion" class="active">Descripción</label>
       </div>
-      <!-- Agrega más campos según lo que quieras editar -->
+      
       <input type="hidden" id="editId" name="id">
       <button class="modal-close btn waves-effect waves-light" type="submit">Guardar</button>
     </form>
   </div>
 </div>
 
-<!-- Modal para agregar sensor -->
+
+
 <div id="modalAgregar" class="modal">
   <div class="modal-content">
     <h4>Agregar Nuevo Sensor</h4>

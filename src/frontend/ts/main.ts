@@ -1,9 +1,9 @@
-// Inicialización
+
 window.addEventListener("load", async () => {
   // @ts-ignore
   M.Modal.init(document.querySelectorAll('.modal'));
 
-  // @ts-ignore - Acceder a las clases globalmente
+  // @ts-ignore
   const deleteManager = new (window as any).CardDelete();
   deleteManager.attachDeleteListeners();
   
@@ -23,7 +23,6 @@ window.addEventListener("load", async () => {
 
 });
 
-// Inicializar el formulario cuando el DOM esté list
 document.addEventListener('DOMContentLoaded', () => {
   // @ts-ignore
   const formHandler = new (window as any).CardEditSendDB();

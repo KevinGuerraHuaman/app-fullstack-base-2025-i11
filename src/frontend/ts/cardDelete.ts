@@ -1,5 +1,4 @@
 
-
 class CardDelete implements EventListenerObject {
   handleEvent(object: Event): void {
     const btn = object.target as HTMLElement;
@@ -21,5 +20,4 @@ class CardDelete implements EventListenerObject {
   }
 }
 
-// Exponer globalmente
 (window as any).CardDelete = CardDelete;

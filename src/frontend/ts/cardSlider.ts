@@ -15,7 +15,7 @@ class CardSlider {
         }
       });
 
-      // Actualización en la base de datos al soltar el slider
+
       slider.addEventListener('change', (event) => {
         const target = event.target as HTMLInputElement;
         const id = target.getAttribute('data-id');
@@ -26,7 +26,7 @@ class CardSlider {
       });
     });
 
-    // Switches
+
     const switches = document.querySelectorAll('input[type="checkbox"][data-id]');
     switches.forEach(sw => {
       sw.addEventListener('change', (event) => {
@@ -51,16 +51,14 @@ class CardSlider {
       if (!response.ok) {
         throw new Error('Error al actualizar el valor');
       }
-      // Opcional: feedback visual
-      // alert('Valor actualizado');
+
     } catch (err) {
       console.error(err);
-      // Opcional: feedback de error
-      // alert('No se pudo actualizar el valor');
+
     }
   }
 
 }
 
-// Exponer globalmente
+
 (window as any).CardSlider = CardSlider;

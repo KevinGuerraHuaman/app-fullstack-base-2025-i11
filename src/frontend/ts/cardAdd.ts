@@ -1,5 +1,4 @@
 
-
 class CardAdd {
     private modal: any;
     private form: HTMLFormElement | null;
@@ -13,20 +12,19 @@ class CardAdd {
     }
 
     private initModal(): void {
-        // Inicializar modal de Materialize
         const modalElement = document.getElementById('modalAgregar');
         if (modalElement) {
             // @ts-ignore
             this.modal = M.Modal.init(modalElement);
             
-            // Inicializar select de Materialize
+
             // @ts-ignore
             M.FormSelect.init(document.querySelectorAll('#modalAgregar select'));
         }
     }
 
     private attachEventListeners(): void {
-        // Botón "Agregar Sensor"
+ 
         const btnAgregar = document.getElementById('btnAgregarSensor');
         if (btnAgregar) {
             btnAgregar.addEventListener('click', () => {
@@ -34,7 +32,7 @@ class CardAdd {
             });
         }
 
-        // Formulario de agregar
+ 
         if (this.form) {
             this.form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -44,10 +42,10 @@ class CardAdd {
     }
 
     private openModal(): void {
-        // Limpiar formulario
+
         if (this.form) {
             this.form.reset();
-            // Reinicializar labels de Materialize
+
             // @ts-ignore
             M.updateTextFields();
         }
@@ -84,15 +82,14 @@ class CardAdd {
 
             const result = await response.json();
             
-            // Cerrar modal
+
             if (this.modal) {
                 this.modal.close();
             }
 
-            // Recargar las cards para mostrar el nuevo dispositivo
             await this.cardDB.loadDevices();
 
-            // Mostrar mensaje de éxito
+
             // @ts-ignore
             M.toast({html: 'Sensor agregado exitosamente', classes: 'green'});
 
@@ -104,5 +101,4 @@ class CardAdd {
     }
 }
 
-// Hacer la clase disponible globalment
 (window as any).CardAdd = CardAdd;
