@@ -23,7 +23,7 @@ window.addEventListener("load", async () => {
 
 });
 
-// Inicializar el formulario cuando el DOM esté listo
+// Inicializar el formulario cuando el DOM esté list
 document.addEventListener('DOMContentLoaded', () => {
   // @ts-ignore
   const formHandler = new (window as any).CardEditSendDB();

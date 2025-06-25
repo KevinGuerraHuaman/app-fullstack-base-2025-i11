@@ -22,31 +22,6 @@ En esta sección vas a encontrar las características más relevantes del proyec
 <details><summary><b>Mira los detalles más importantes de la aplicación</b></summary><br>
 <br>
 
-### Arquitectura de la aplicación
-
-### El cliente web
-
-El cliente web es una Single Page Application que se comunica con el servicio en NodeJS mediante JSON a través de requests HTTP. Puede consultar el estado de dispositivos en la base de datos (por medio del servicio en NodeJS) y también cambiar el estado de los mismos. Los estilos del código están basados en **Material Design**.
-
-### El servicio web
-
-El servicio en **NodeJS** posee distintos endpoints para comunicarse con el cliente web mediante requests HTTP enviando **JSON** en cada transacción. Procesando estos requests es capaz de comunicarse con la base de datos para consultar y controlar el estado de los dispositivos, y devolverle una respuesta al cliente web también en formato JSON. Así mismo el servicio es capaz de servir el código del cliente web.
-
-### La base de datos
-
-La base de datos se comunica con el servicio de NodeJS y permite almacenar el estado de los dispositivos en la tabla **Devices**. Ejecuta un motor **MySQL versión 5.7** y permite que la comunicación con sus clientes pueda realizarse usando usuario y contraseña en texto plano. En versiones posteriores es necesario brindar claves de acceso, por este motivo la versión 5.7 es bastante utilizada para fases de desarrollo.
-
-### El administrador de la DB
-
-Para esta aplicación se usa **PHPMyAdmin**, que es un administrador de base de datos web muy utilizado y que podés utilizar en caso que quieras realizar operaciones con la base, como crear tablas, modificar columnas, hacer consultas y otras cosas más.
-
-### El compilador de TypeScript
-
-**TypeScript** es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipos estáticos y objetos basados en clases. Para esta aplicación se usa un compilador de TypeScript basado en una imagen de [Harmish](https://hub.docker.com/r/harmish) en Dockerhub, y está configurado para monitorear en tiempo real los cambios que se realizan sobre el directorio **src/frontend/ts** y automáticamente generar código compilado a JavaScript en el directorio  **src/frontend/js**. Los mensajes del compilador aparecen automáticamente en la terminal al ejecutar el comando **docker-compose up**.
-
-### Ejecución de servicios
-
-Los servicios de la aplicación se ejecutan sobre **contenedores de Docker**, así se pueden desplegar de igual manera en diferentes plataformas. Los detalles sobre cómo funcionan los servicios los podés ver directamente en el archivo **docker-compose.yml**.
 
 ### Organización del proyecto
 
@@ -97,18 +72,27 @@ En esta sección podés ver los detalles específicos de funcionamiento del cód
 
 ### Frontend
 
-El poryecto fue desarrollado utilizando tecnologias como TypScript, HTML y Materialize, organizando las funciones principales en módulos separados para mantener el codigo ordenado. A continuacion se detalla la estrucutra del proyecto y las princiaples funciones e interacciones del usuario.
+El frontend de este proyecto fue desarrollado utilizando TypeScript, HTML y la librería Materialize para el diseño visual. El objetivo principal fue crear un dashboard donde se pueden visualizar y gestionar distintos sensores, mostrando cada uno en una tarjeta (card) para facilitar su comprensión y control. Para mantener el código ordenado y modular, las funciones principales se separaron en diferentes archivos según su responsabilidad.
 
-- Para la gestión de tarjetas (card), se utilizan archivos como cardDB.ts, cardAdd.ts, cardEdit.ts, cardEditSendDB.ts y cardDelete.ts, que permiten crear, editar, eliminar y almacenar tarjetas de manera eficiente. La navegación entre tarjetas se realiza a través de un slider implementado en cardSlider.ts, lo que facilita una experiencia visual dinámica. Además, el archivo device.ts se encarga de manejar aspectos específicos del entorno o dispositivo donde se ejecuta la aplicación
-- Las principales interacciones de usuario incluyen la posibilidad de agregar nuevas tarjetas mediante formularios, editar tarjetas existentes con validaciones y confirmaciones, eliminar tarjetas con mensajes de advertencia y navegar entre ellas de forma intuitiva. Se priorizó la modularidad del código, la persistencia local de los datos y la retroalimentación inmediata al usuario para asegurar una experiencia fluida y confiable.
+Para la gestión de tarjetas, se utilizan archivos como cardDB.ts, cardAdd.ts, cardEdit.ts, cardEditSendDB.ts y cardDelete.ts. Estos archivos permiten agregar, editar y eliminar tarjetas de manera eficiente. El archivo cardSlider.ts se encarga de implementar los sliders o switches que aparecen en las tarjetas, facilitando el cambio de estado de los sensores de forma visual y rápida. Además, device.ts maneja aspectos específicos del dispositivo donde se ejecuta la aplicación, adaptando la funcionalidad según sea necesario. En las siguietnes lineas se detalla cada script TypeScript con su respectiva funcioanlidad.
 
-    A continuación, se destacan las principales interacciones de usuario implementadas:
+- cardDB.ts: Gestiona obtener informacion de la base de datos y cargar en cada tarjeta.
+- cardAdd.ts: Función para agregar nuevas tarjetas, incluyendo la validación de los datos ingresados por el usuario.
+- cardEdit.ts: Permite editar tarjetas existentes, se activa con el boton "Editar", mostrando los datos actuales en el formulario de edición.
+- cardEditSendDB.ts: Se encarga de enviar los cambios realizados en la edición de una tarjeta a la base de datos local.
+- cardDelete.ts: Gestiona la eliminación de tarjetas, a trves del boton "Eliminar", solicitando confirmación antes de borrar.
+- cardSlider.ts: Implementa el slider o switch dentro de cada tarjeta, permitiendo cambiar el estado de los sensores de forma visual.
+- mian.ts: Organiza todas las funciones independientes.
 
-    - Agregar una nueva tarjeta mediante un formulario con validación de datos.
-    - Editar tarjetas existentes, mostrando los datos actuales y permitiendo su modificación.
-    - Eliminar tarjetas seleccionadas, con confirmación previa para evitar borrados accidentales.
-    - Navegar entre tarjetas de forma visual e intuitiva utilizando un slider.
-    - Recibir mensajes de error o confirmación según las acciones realizadas.
+En cuanto a la interacción del usuario, este puede agregar nuevas tarjetas llenando un formulario, editar las tarjetas existentes (con validaciones para asegurar la integridad de los datos), y eliminar tarjetas, siempre solicitando confirmación para evitar borrados accidentales. La navegación entre las tarjetas se realiza de manera sencilla gracias al slider, y la aplicación muestra mensajes claros para informar sobre el estado de las acciones realizadas. Se priorizó la modularidad del código, la persistencia local de los datos y la retroalimentación inmediata al usuario para asegurar una experiencia fluida y confiable.
+
+Principales interacciones de usuario:
+
+- Agregar una nueva tarjeta llenando un formulario con validación.
+- Editar tarjetas ya creadas, mostrando los datos actuales para modificarlos.
+- Eliminar tarjetas, siempre pidiendo confirmación antes.
+- Navegar entre tarjetas usando un slider visual.
+- Recibir mensajes de error o confirmación según lo que se haga.
 
 ### Backend
 
@@ -141,12 +125,11 @@ Entre las responsabilidades más relevantes del backend se encuentran:
     "response_body": [
         {
             "id": 1,
-            "name": "Kitchen Light",
+            "name": "Luz 2",
             "description": "Luz de la cocina",
-            "state": 1,
-            "type": 0,
-            "value": null,
-            "icon": "light_bulb"
+            "tipo": 0,
+            "valor": null,
+            "iconMate": "toys"
         }
     ]
 }
